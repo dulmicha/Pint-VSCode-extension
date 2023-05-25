@@ -10,28 +10,35 @@
 } */
 
 .grid {
-    display: grid;
-    gap: 3px;
-    grid-template-columns: repeat(3, 1fr);
-  }
+  display: grid;
+  gap: 3px;
+  grid-template-columns: repeat(3, 1fr);
+
+}
 
 .item {
-    /* transparent background color */
-    background-color: black;
-    padding: 1px;
-    font-size: 20px;
-    text-align: center;
-  }
+  /* transparent background color */
+  background-color: black;
+  padding: 1px;
+  font-size: 20px;
+  text-align: center;
+
+  border-radius: 4px;
+}
 
 .emptyitem {
-    /* transparent background color */
-    background-color: transparent;
-    padding: 1px;
-    font-size: 20px;
-    text-align: center;
-  }
-  
-div > div {
-    padding: 10px;
-    background-color: #ccc;
+  /* transparent background color */
+  background-color: transparent;
+  padding: 1px;
+  font-size: 20px;
+  text-align: center;
+}
+
+div>div {
+  padding: 10px;
+  background-color: #ccc;
+}
+
+.button_circle {
+  border-radius: 4px;
 }
