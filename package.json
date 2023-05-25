@@ -12,7 +12,16 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [],
+    "commands": [
+      {
+        "command": "pint.debrew",
+        "title": "Pint: Debrew file"
+      },
+      {
+        "command": "pint.debrewAndRun",
+        "title": "Pint: Debrew file and run"
+      }
+    ],
     "viewsContainers": {
       "activitybar": [
         {
