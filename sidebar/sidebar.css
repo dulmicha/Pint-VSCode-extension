@@ -12,26 +12,40 @@
 .grid {
   display: grid;
   gap: 3px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  max-width: 430px;
+  margin: 0 auto;
+}
 
+/* grid, which sets columns number based on width */
+@media (max-width: 400px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media (max-width: 340px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 270px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 210px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .item {
-  /* transparent background color */
   background-color: black;
   padding: 1px;
   font-size: 20px;
   text-align: center;
-
+  height: 35px;
   border-radius: 4px;
-}
-
-.emptyitem {
-  /* transparent background color */
-  background-color: transparent;
-  padding: 1px;
-  font-size: 20px;
-  text-align: center;
 }
 
 div>div {

@@ -80,7 +80,7 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
         <h4>Imports</h4>
         <div class="grid">
           <div class="item"><button title="import" class="button_circle" onclick="handleButtonClick('🚢')"}>🚢</button></div>
-          <div class="item"><button title="from" lass="button_circle" onclick="handleButtonClick('🏝️')"}>🏝️</button></div>
+          <div class="item"><button title="from" class="button_circle" onclick="handleButtonClick('🏝️')"}>🏝️</button></div>
           <div class="item"><button title="as" class="button_circle" onclick="handleButtonClick('🤿')"}>🤿</button></div>
         </div>
 
@@ -107,8 +107,6 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
           <div class="item"><button title="map / dictionary" class="button_circle" onclick="handleButtonClick('🗺️')"}>🗺️</button></div>
 
           <div class="item"><button title="set" class="button_circle" onclick="handleButtonClick('🗑️')"}>🗑️</button></div>
-          <div class="emptyitem"></div>
-          <div class="emptyitem"></div>
         </div>
 
         <h4>Operators</h4>
@@ -132,8 +130,6 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
         <h4>Loops</h4>
         <div class="grid">
         <div class="item"><button title="loop" class="button_circle" onclick="handleButtonClick('🔁')"}>🔁</button></div>
-          <div class="emptyitem"></div>
-          <div class="emptyitem"></div>
         </div>
 
         <h4>Flow Control</h4>
@@ -156,15 +152,12 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
           <div class="item"><button title="self" class="button_circle" onclick="handleButtonClick('🤗')"}>🤗</button></div>
 
           <div class="item"><button title="constructor" class="button_circle" onclick="handleButtonClick('🏗️')"}>🏗️</button></div>
-          <div class="emptyitem"></div>
-          <div class="emptyitem"></div>
         </div>
 
         <h4>Others</h4>
         <div class="grid">
           <div class="item"><button title="formating string" class="button_circle" onclick="handleButtonClick('✏️')"}>✏️</button></div>
           <div class="item"><button title="print" class="button_circle" onclick="handleButtonClick('🖨️')"}>🖨️</button></div>
-          <div class="emptyitem"></div>
         </div>
 
         <script>
