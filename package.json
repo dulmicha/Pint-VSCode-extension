@@ -12,15 +12,13 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-
-    ],
+    "commands": [],
     "viewsContainers": {
       "activitybar": [
         {
           "id": "pint-sidebar-view",
           "title": "Pint",
-          "icon": "media/icon.svg"
+          "icon": "media/pint.png"
         }
       ]
     },
@@ -30,7 +28,7 @@
           "type": "webview",
           "id": "pint-sidebar",
           "name": "Pint",
-          "icon": "media/icon.svg",
+          "icon": "media/pint.png",
           "contextualTitle": "Pint"
         }
       ]
