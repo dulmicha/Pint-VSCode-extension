@@ -36,38 +36,31 @@ export function activate(context: vscode.ExtensionContext) {
 				terminal.show();
 				terminal.sendText(`debrewer ${fileName}`);
 			}
-		}
-	));
+		})
+	);
 
-	context.subscriptions.push(
-		vscode.commands.registerCommand('pint.debrewAndRun', () => {
-			vscode.commands.executeCommand('pint.debrew');
-			var terminal = vscode.window.activeTerminal;
-			var fileName = vscode.window.activeTextEditor?.document.fileName;
-			// replace current extension with .py
-			var fileName = fileName?.replace(/\.[^/.]+$/, ".py");
+	let command = vscode.commands.registerCommand('pint.debrewAndRun', () => {
+		var terminal = vscode.window.activeTerminal;
+		var fileName = vscode.window.activeTextEditor?.document.fileName;
+		var fileNamePy = fileName?.replace(/\.[^/.]+$/, ".py");
+		if (terminal) {
+			terminal.show();
+			terminal.sendText(`debrewer ${fileName} && python ${fileNamePy}`);
+		} 
+		else {
+			terminal = vscode.window.createTerminal();
+			terminal.show();
+			terminal.sendText(`debrewer ${fileName} && python ${fileNamePy}`);
+		}}
+	);
 
-			// check if that file exists
-			var fs = require('fs');
-			if (fs.existsSync(fileName)) {
-				if (terminal) {
-					terminal.show();
-					terminal.sendText(`python ${fileName}`);
-				} 
-				else {
-					terminal = vscode.window.createTerminal();
-					terminal.show();
-					terminal.sendText(`python ${fileName}`);
-				}
-			}
-		}
-	));	
+    let disposable = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
+    disposable.text = "$(play) Debrew and Run";
+    disposable.tooltip = "Debrew and Run";
+    disposable.command = 'pint.debrewAndRun';
+    disposable.show();
 
-
-
-
-
-
+    context.subscriptions.push(command, disposable);
 }
 
 export function deactivate() {}

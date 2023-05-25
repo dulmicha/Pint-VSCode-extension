@@ -40,6 +40,20 @@
           "icon": "media/pint.png",
           "contextualTitle": "Pint"
         }
+      ],
+      "explorer": [
+        {
+          "id": "pint-explorer",
+          "name": "Pint",
+          "contextualTitle": "Pint"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "pint.debrewAndRun"
+        }
       ]
     }
   },
