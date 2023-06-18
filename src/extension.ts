@@ -27,32 +27,39 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.commands.registerCommand('pint.debrew', () => {
 			var terminal = vscode.window.activeTerminal;
 			var fileName = vscode.window.activeTextEditor?.document.fileName;
-			if (terminal) {
-				terminal.show();
-				terminal.sendText(`debrewer ${fileName}`);
-			} 
-			else {
+			if (!terminal) {
 				terminal = vscode.window.createTerminal();
-				terminal.show();
-				terminal.sendText(`debrewer ${fileName}`);
 			}
-		})
+			terminal.show();
+			terminal.sendText(`debrewer ${fileName}`);
+			}
+		)
 	);
 
 	let command = vscode.commands.registerCommand('pint.debrewAndRun', () => {
-		var terminal = vscode.window.activeTerminal;
+		// execute pint.debrew command
+		vscode.commands.executeCommand('pint.debrew');
+
+		// check if execution is successful - check if file.py exists
 		var fileName = vscode.window.activeTextEditor?.document.fileName;
 		var fileNamePy = fileName?.replace(/\.[^/.]+$/, ".py");
-		if (terminal) {
-			terminal.show();
-			terminal.sendText(`debrewer ${fileName} && python ${fileNamePy}`);
-		} 
-		else {
-			terminal = vscode.window.createTerminal();
-			terminal.show();
-			terminal.sendText(`debrewer ${fileName} && python ${fileNamePy}`);
-		}}
-	);
+		var fs = require('fs');
+		var path = require('path');
+		var filePath = path.join(fileNamePy);
+
+		var checkExist = setInterval(function() {
+			if (fs.existsSync(filePath)) {
+				clearInterval(checkExist);
+				// execute python file
+				var terminal = vscode.window.activeTerminal;
+				if (!terminal) {
+					terminal = vscode.window.createTerminal();
+				}
+				terminal.show();
+				terminal.sendText(`python ${fileNamePy}`);
+			}
+		}, 1000);
+	});
 
     let disposable = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
     disposable.text = "$(play) Debrew and Run";
