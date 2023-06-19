@@ -46,8 +46,13 @@ export function activate(context: vscode.ExtensionContext) {
 		var fs = require('fs');
 		var path = require('path');
 		var filePath = path.join(fileNamePy);
+		
+		var currentFileLines = vscode.window.activeTextEditor?.document.lineCount;
+		if (currentFileLines === undefined) {
+			currentFileLines = 100;
+		}
 
-		var checkExist = setInterval(function() {
+		var checkExist = setTimeout(function() {
 			if (fs.existsSync(filePath)) {
 				clearInterval(checkExist);
 				// execute python file
@@ -58,7 +63,7 @@ export function activate(context: vscode.ExtensionContext) {
 				terminal.show();
 				terminal.sendText(`python ${fileNamePy}`);
 			}
-		}, 1000);
+		}, currentFileLines * 20);
 	});
 
     let disposable = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);

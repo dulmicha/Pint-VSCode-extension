@@ -22,9 +22,13 @@ To work properly, Pint VSCode Extension requires debrewer and python to be acces
 ### Installation
 Due to user-provided SVG images, we could't publish extension on VSCode Marketplace. Nonetheless, you can still use it by installation of package `pint-extension.vsix` from this repository. It requires only 2 commands!
 
-1. On 🍏/🐧 `curl -LJO "https://raw.githubusercontent.com/dulmicha/Pint-VSCode-extension/main/pint-extension.vsix"`
+1. On 🍏/🐧:
    
-   On 🪟 `Invoke-WebRequest -Uri "https://raw.githubusercontent.com/dulmicha/Pint-VSCode-extension/main/pint-extension.vsix" -OutFile "pint-extension.vsix"`
+   `curl -LJO "https://raw.githubusercontent.com/dulmicha/Pint-VSCode-extension/main/pint-extension.vsix"`
+   
+   On 🪟:
+   
+   `Invoke-WebRequest -Uri "https://raw.githubusercontent.com/dulmicha/Pint-VSCode-extension/main/pint-extension.vsix" -OutFile "pint-extension.vsix"`
 2. `code --install-extension pint-extension.vsix` 
 
 You can code in Pint like a pro now! 🍺
