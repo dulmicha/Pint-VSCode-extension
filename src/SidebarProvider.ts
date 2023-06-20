@@ -154,6 +154,13 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
           <div class="item"><button title="constructor" class="button_circle" onclick="handleButtonClick('🏗️')"}>🏗️</button></div>
         </div>
 
+        <h4>Comments</h4>
+        <div class="grid">
+          <div class="item"><button title="comment" class="button_circle" onclick="handleButtonClick('💬')"}>💬</button></div>
+          <div class="item"><button title="multiline comment start" class="button_circle" onclick="handleButtonClick('💬⬇️')"}>💬⬇️</button></div>
+          <div class="item"><button title="multiline comment end" class="button_circle" onclick="handleButtonClick('💬⬆️')"}>💬⬆️</button></div>
+        </div>
+
         <h4>Others</h4>
         <div class="grid">
           <div class="item"><button title="formating string" class="button_circle" onclick="handleButtonClick('✏️')"}>✏️</button></div>

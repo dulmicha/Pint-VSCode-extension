@@ -15,6 +15,8 @@
   grid-template-columns: repeat(6, 1fr);
   max-width: 430px;
   margin: 0 auto;
+
+  justify-content: center;
 }
 
 /* grid, which sets columns number based on width */
@@ -23,16 +25,19 @@
     grid-template-columns: repeat(5, 1fr);
   }
 }
+
 @media (max-width: 340px) {
   .grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
 @media (max-width: 270px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
 @media (max-width: 210px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -44,7 +49,8 @@
   padding: 1px;
   font-size: 20px;
   text-align: center;
-  height: 35px;
+  /* height: 30px; */
+
   border-radius: 4px;
 }
 
