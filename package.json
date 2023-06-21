@@ -20,6 +20,19 @@
       {
         "command": "pint.debrewAndRun",
         "title": "Pint: Debrew file and run"
+      },
+      {
+        "command": "pint.commentOut",
+        "title": "Pint: Comment Out"
+      }      
+    ],
+    "keybindings": [
+      {
+        "command": "pint.commentOut",
+        "title": "Pint: Comment Out",
+        "key": "ctrl+/",
+        "mac": "cmd+/",
+        "linux": "ctrl+/"
       }
     ],
     "viewsContainers": {

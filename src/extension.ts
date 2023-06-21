@@ -36,6 +36,41 @@ export function activate(context: vscode.ExtensionContext) {
 		)
 	);
 
+	// when pressed ctrl+/ comment out the line
+	context.subscriptions.push(
+		vscode.commands.registerCommand('pint.commentOut', () => {
+			var editor = vscode.window.activeTextEditor;
+			if (editor) {
+				var fileName = editor.document.fileName;	
+				if (fileName.split(".").pop() !== "pint" && fileName.split(".").pop() !== "🍺") {
+					return;
+				}
+				var selection = editor.selection;
+				var text = editor.document.getText(selection);
+				var textArray = text.split("\n");
+				var isCommented = true;
+				for (var i = 0; i < textArray.length; i++) {
+					if (textArray[i].split(" ")[0] !== "💬") {
+						isCommented = false;
+						break;
+					}
+				}
+				var newText = "";
+				for (var i = 0; i < textArray.length; i++) {
+					if (isCommented) {
+						newText += textArray[i].split(" ").slice(1).join(" ") + "\n";
+					} else {
+						newText += "💬 " + textArray[i] + "\n";
+					}
+				}
+				newText = newText.slice(0, -1);
+				editor.edit((editBuilder) => {
+					editBuilder.replace(selection, newText);
+				});
+			}
+		})
+	);
+
 	let command = vscode.commands.registerCommand('pint.debrewAndRun', () => {
 		// execute pint.debrew command
 		vscode.commands.executeCommand('pint.debrew');

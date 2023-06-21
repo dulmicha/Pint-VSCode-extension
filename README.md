@@ -37,7 +37,7 @@ Due to user-provided SVG images, we could't publish extension on VSCode Marketpl
 
    or
 
-   `curl -LJO "https://raw.githubusercontent.com/dulmicha/Pint-VSCode-extension/main/pint-extension.vsix" -o pint-extension.vsix`
+   `curl "https://raw.githubusercontent.com/dulmicha/Pint-VSCode-extension/main/pint-extension.vsix" -o pint-extension.vsix`
 2. `code --install-extension pint-extension.vsix` 
 
 You can code in Pint like a pro now! 🍺
